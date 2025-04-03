@@ -1,4 +1,5 @@
 ﻿using Contracts_and_Models.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Property_and_Supply_Management.Interface;
 
@@ -15,6 +16,7 @@ namespace Property_and_Supply_Management.Controllers
 			_departmentRepository = departmentRepository;
 		}
 
+		[AllowAnonymous]
 		[HttpGet("get-all-departments")]
 		public async Task<IActionResult> GetAll()
 		{

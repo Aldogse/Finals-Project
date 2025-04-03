@@ -5,8 +5,8 @@ C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts a
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.AssemblyInfoInputs.cache
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.AssemblyInfo.cs
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.csproj.CoreCompileInputs.cache
-C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.sourcelink.json
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.dll
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\refint\Contracts and Models.dll
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.pdb
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\ref\Contracts and Models.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Contracts and Models\obj\Release\net6.0\Contracts and Models.csproj.AssemblyReference.cache
