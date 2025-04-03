@@ -118,18 +118,18 @@ C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property an
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.csproj.CoreCompileInputs.cache
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.sourcelink.json
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets\msbuild.Property and Supply Management.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets\msbuild.build.Property and Supply Management.props
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Property and Supply Management.props
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Property and Supply Management.props
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\scopedcss\bundle\Property and Supply Management.styles.css
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property.73A10A96.Up2Date
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.dll
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\refint\Property and Supply Management.dll
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.pdb
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.genruntimeconfig.cache
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\ref\Property and Supply Management.dll
-C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.sourcelink.json
-C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property.73A10A96.Up2Date

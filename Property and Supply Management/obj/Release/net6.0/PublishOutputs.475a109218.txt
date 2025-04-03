@@ -1,0 +1,44 @@
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Property and Supply Management.exe
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\appsettings.Development.json
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\appsettings.json
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Property and Supply Management.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Property and Supply Management.runtimeconfig.json
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Property and Supply Management.pdb
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.Data.SqlClient.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.EntityFrameworkCore.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.Identity.Client.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.IdentityModel.Logging.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.OpenApi.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Microsoft.Win32.SystemEvents.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.Configuration.ConfigurationManager.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.Drawing.Common.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.Runtime.Caching.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.Security.Permissions.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\System.Windows.Extensions.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Contracts and Models.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Contracts and Models.pdb
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\publish\Property and Supply Management.deps.json

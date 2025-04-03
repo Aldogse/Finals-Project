@@ -1,3 +1,4 @@
+﻿
 using Microsoft.EntityFrameworkCore;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<PAS_DBContext>(options =>
 {
 	options.UseSqlServer(builder.Configuration.GetConnectionString("azureConnection"));
 });
-builder.Services.AddScoped<IItemRepository,ItemRepository>();
+builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IDisposedItemRepository, DisposedItemRepository>();
 builder.Services.AddScoped<IMaintenanceItemRepository, MaintenanceItemRepository>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -37,4 +38,3 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 app.UseHttpsRedirection();
 app.Run();
-

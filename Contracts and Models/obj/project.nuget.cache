@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nZSLHKIoAvxLpqynqialLgF2Yxg4SlpIwRpDOtZrm8YV9gpq6t7sc2PmF9mq/lOEo7kF87GgQtjNrHq4Toh0qQ==",
+  "dgSpecHash": "4np1HEcgsOTnZYfBXRqki9Vj8e4EzjWXPHl7lhlBmOclaa1owsevmQeKSLlxXJScUZIMjs2lOgYqgkXgTIry0Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ezekiel\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.31\\microsoft.netcore.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\Ezekiel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.31\\microsoft.windowsdesktop.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\Ezekiel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.31\\microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512"
+  ],
   "logs": []
 }
