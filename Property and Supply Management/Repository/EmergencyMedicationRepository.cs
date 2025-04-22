@@ -1,4 +1,4 @@
-﻿using Contracts_and_Models.Models;
+﻿ using Contracts_and_Models.Models;
 using Microsoft.EntityFrameworkCore;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;

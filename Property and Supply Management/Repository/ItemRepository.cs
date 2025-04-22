@@ -31,5 +31,29 @@ namespace Property_and_Supply_Management.Repository
 		{
 			throw new NotImplementedException();
 		}
+
+		public async Task<paginated_response<ItemDetailsResponse>> paginated_Response(int current_page, int page_size)
+		{
+			var items = _pAS_DBContext.Items.AsQueryable();
+
+			var total_count = await items.CountAsync();
+
+			var paginated_query = items.OrderBy(i => i.id).Skip((current_page - 1) * page_size).Take(page_size);
+
+			var item_query = await paginated_query.Select(item => new ItemDetailsResponse
+			{
+				id = item.id,
+				asset_name = item.asset_name,
+				Amount = item.Amount,
+				User = item.User.ToString(),
+				maintenance_date = item.maintenance_date.ToString(),
+				AssignedTo = item.AssignedTo.ToString(),
+				Quantity = item.Quantity,
+				Status = item.Status.ToString(),
+				purchase_date = item.purchase_date.ToShortDateString(),
+			}).ToListAsync();
+
+			return new paginated_response<ItemDetailsResponse>(current_page,page_size,total_count,item_query);
+		}
 	}
 }

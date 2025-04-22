@@ -8,7 +8,8 @@ namespace Contracts_and_Models.Enums
 {
 	public enum Status
 	{
-		Active = 1,
+		Active = 1,		
 		InMaintenance = 2,
+		InUse = 3
 	}
 }

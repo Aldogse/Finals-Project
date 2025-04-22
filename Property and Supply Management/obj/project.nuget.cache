@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GZgyF7kwCxkXeoHU0gkkUakUG0RwqyywmgfKhGC2BWCL+Wlm7YBjzBqmWGfObqB6ljKbuEn26NPw0/uOAK4uqQ==",
+  "dgSpecHash": "T5OUylJ5gvrVovn1MyN01OuAXPwipvpl+1i0t5TbuymPoyUzOXMfmbnGC8o4Llo/+6e1gnCdDhcduQrQTwmgfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Property and Supply Management\\Property and Supply Management.csproj",
+  "projectFilePath": "C:\\Project\\School-Project\\Property and Supply Management\\Property and Supply Management.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ezekiel\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ezekiel\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

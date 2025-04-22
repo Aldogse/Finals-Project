@@ -11,6 +11,7 @@ namespace Contracts_and_Models.Enums
 		Nurse = 1,
 		Doctor = 2,
 		IT_Staff = 3,
-		Third_Party = 4
+		Third_Party = 4,
+		No_User = 5
 	}
 }

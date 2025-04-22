@@ -48,8 +48,11 @@ namespace Property_and_Supply_Management.Controllers
 					User = item.User.ToString(),
                     Status = item.Status.ToString(),
 				}).ToList();
+				
 
-				return Ok(response);
+                Console.WriteLine(response);
+                
+                return Ok(response);
 			}
 			catch (Exception ex)
 			{
@@ -95,7 +98,7 @@ namespace Property_and_Supply_Management.Controllers
 				Console.WriteLine($"Changes on database: {item_deleted}");
 
 				await transaction.CommitAsync();
-				return Ok("Item Deleted moved to disposed table");
+				return Ok();
 
 			}
 			catch (Exception ex)
@@ -113,22 +116,20 @@ namespace Property_and_Supply_Management.Controllers
 			}
 			try
 			{
-				var request = new Item()
+				var new_item_request = new Item 
 				{
 					asset_name = itemRequest.asset_name,
 					Amount = itemRequest.Amount,
 					Quantity = itemRequest.Quantity,
 					purchase_date = itemRequest.purchase_date,
 					maintenance_date = itemRequest.maintenance_date,
-					AssignedTo = itemRequest.AssignedTo,
-					User = itemRequest.User,
-					Status = itemRequest.Status,
-					LastMaintenanceDate = null
+					Status = Contracts_and_Models.Enums.Status.Active,
+					AssignedTo = (int) Contracts_and_Models.Enums.ItemUser.No_User
 				};
 
-				await _pAS_DBContext.AddAsync(request);
+				_pAS_DBContext.Add(new_item_request);
 				await _pAS_DBContext.SaveChangesAsync();
-				return Ok("Item successfully added");
+				return Ok(new_item_request);
 			}
 			catch (Exception ex)
 			{
@@ -161,7 +162,7 @@ namespace Property_and_Supply_Management.Controllers
 
 				 _pAS_DBContext.Items.Update(item_to_update);
 				await _pAS_DBContext.SaveChangesAsync();
-				return Ok($"item id :{id} has been successfully updated");
+				return Ok();
 				
 			}
 			catch (Exception ex)
@@ -201,7 +202,7 @@ namespace Property_and_Supply_Management.Controllers
 					start_date = statusUpdateRequest.start_date,
 					end_date = statusUpdateRequest.end_date,
 					reason = statusUpdateRequest.reason,
-					Status = statusUpdateRequest.Status
+					Status = Contracts_and_Models.Enums.MaintenanceStatus.InProgress
 				};
 
 				_pAS_DBContext.Entry(maintenance_information).State = Microsoft.EntityFrameworkCore.EntityState.Added;
@@ -209,7 +210,7 @@ namespace Property_and_Supply_Management.Controllers
 				await _pAS_DBContext.SaveChangesAsync();
 
 				await transaction.CommitAsync();
-				return Ok("Item added to maintenance list");
+				return Ok();
 
 			}
 			catch (Exception ex)

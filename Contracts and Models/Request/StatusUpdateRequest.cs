@@ -12,6 +12,5 @@ namespace Contracts_and_Models.Request
 		public DateTime? start_date { get; set; }
 		public DateTime? end_date { get; set; }
 		public string reason { get; set; }
-		public MaintenanceStatus Status { get; set; }
 	}
 }

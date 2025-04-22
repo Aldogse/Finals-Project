@@ -2455,11 +2455,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Property and Supply Management\\Property and Supply Management.csproj",
+      "projectUniqueName": "C:\\Project\\School-Project\\Property and Supply Management\\Property and Supply Management.csproj",
       "projectName": "Property and Supply Management",
-      "projectPath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Property and Supply Management\\Property and Supply Management.csproj",
+      "projectPath": "C:\\Project\\School-Project\\Property and Supply Management\\Property and Supply Management.csproj",
       "packagesPath": "C:\\Users\\Ezekiel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Property and Supply Management\\obj\\",
+      "outputPath": "C:\\Project\\School-Project\\Property and Supply Management\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ezekiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2476,8 +2476,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj": {
-              "projectPath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj"
+            "C:\\Project\\School-Project\\Contracts and Models\\Contracts and Models.csproj": {
+              "projectPath": "C:\\Project\\School-Project\\Contracts and Models\\Contracts and Models.csproj"
             }
           }
         }

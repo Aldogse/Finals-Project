@@ -7,7 +7,14 @@
     <RootNamespace>Property_and_Supply_Management</RootNamespace>
   </PropertyGroup>
 
+
   <ItemGroup>
+    <!--<Compile Remove="Interface\IDisposedItemRepository.cs" />-->
+	  <!--<Compile Remove="Repository\RequestHistoryRepository.cs" />-->
+  </ItemGroup>
+	 
+
+	<ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj": {}
+    "C:\\Project\\School-Project\\Contracts and Models\\Contracts and Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj": {
+    "C:\\Project\\School-Project\\Contracts and Models\\Contracts and Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj",
+        "projectUniqueName": "C:\\Project\\School-Project\\Contracts and Models\\Contracts and Models.csproj",
         "projectName": "Contracts and Models",
-        "projectPath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\Contracts and Models.csproj",
+        "projectPath": "C:\\Project\\School-Project\\Contracts and Models\\Contracts and Models.csproj",
         "packagesPath": "C:\\Users\\Ezekiel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ezekiel\\OneDrive\\Desktop\\AlmondProjects\\School Project 2025\\Contracts and Models\\obj\\",
+        "outputPath": "C:\\Project\\School-Project\\Contracts and Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ezekiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,6 +38,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

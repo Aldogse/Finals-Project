@@ -17,9 +17,22 @@ namespace Property_and_Supply_Management.Database
 		public DbSet<EmergencyMedication> EmergencyMedications { get; set; }
 		public DbSet<ExpiredMedicine> ExpiredMedicines { get; set; }
 		public DbSet<DisposedMedication> DisposedMedications { get; set; }
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<MedicationRequestRecords> MedicationRequestHistory { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
+
+			 modelBuilder.Entity<MedicationRequestRecords>()
+				.HasOne(m => m.Medication)
+				.WithMany()
+				.HasForeignKey(m => m.medication_id)
+				.OnDelete(DeleteBehavior.Restrict);
+
+			modelBuilder.Entity<MedicationRequestRecords>()
+				.HasOne(d => d.Department)
+				.WithMany()
+				.HasForeignKey(d => d.department_id)
+				.OnDelete(DeleteBehavior.Restrict);
 
 			modelBuilder.Entity<Department>().HasData(
 				new Department { Id = 1,department_name = "Administration & Management Department", contact_person_email = ""},

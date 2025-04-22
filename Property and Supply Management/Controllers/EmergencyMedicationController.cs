@@ -13,12 +13,103 @@ namespace Property_and_Supply_Management.Controllers
 	{
 		private readonly IEmergencyMedicationRepository _emergencyMedicationRepository;
 		private readonly PAS_DBContext _pAS_DBContext;
-
-		public EmergencyMedicationController(IEmergencyMedicationRepository emergencyMedicationRepository,PAS_DBContext pAS_DBContext)
+		//private readonly IEmailServiceRepository _emailServiceRepository;
+		private readonly IRequestMedicationHistory _requestMedicationHistory;
+		public EmergencyMedicationController(IRequestMedicationHistory requestMedicationHistory,
+									   IEmergencyMedicationRepository emergencyMedicationRepository,
+									   PAS_DBContext pAS_DBContext
+/*									   IEmailServiceRepository emailServiceRepository*/)
         {
 			_emergencyMedicationRepository = emergencyMedicationRepository;
 			_pAS_DBContext = pAS_DBContext;
+			//_emailServiceRepository = emailServiceRepository;
+			_requestMedicationHistory = requestMedicationHistory;			
 		}
+
+		[HttpPost("medication-request")]
+		public async Task<IActionResult> medication_request([FromBody] medication_request meds_request)
+		{
+			var transaction = await _pAS_DBContext.Database.BeginTransactionAsync();
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			try
+			{
+				var medicine_to_update = await _emergencyMedicationRepository.GetMedicationAsync(meds_request.medication_id);
+
+				if(medicine_to_update.Quantity < meds_request.quantity)
+				{
+					return BadRequest("Quantity is below on what you requested");
+				}
+
+				//this is to store the value in request history table
+				var request_records = new MedicationRequestRecords()
+				{
+					department_id = meds_request.department_id,
+					request_date = meds_request.request_date,
+					Quantity = meds_request.quantity,
+					medicationType = meds_request.medication_type,
+					medication_id = meds_request.medication_id,
+					Description_of_request = meds_request.description_of_request
+				};
+
+				//add the request on the database for history tracking purposes
+				request_records.rejected = false;
+				_pAS_DBContext.MedicationRequestHistory.Add(request_records);
+
+				//save the changes for the database
+				await _pAS_DBContext.SaveChangesAsync();
+
+				await transaction.CommitAsync();
+				return Ok(request_records);
+				
+			}
+			catch (Exception ex)
+			{
+				await transaction.RollbackAsync();
+				return StatusCode(500, ex.Message);
+			}
+		}
+		[HttpPut("medication-request-approval/{request_id}")]
+		public async Task <IActionResult> medication_approval(int request_id)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var transaction = await _pAS_DBContext.Database.BeginTransactionAsync();
+			try
+			{
+				var request = await _requestMedicationHistory.GetRequestAsync(request_id);
+				var medication = await _emergencyMedicationRepository.GetMedicationAsync(request.medication_id);
+
+				if(request == null)
+				{
+					return NotFound("Request not found");
+				}
+
+				//update the quantity once approved
+				medication.Quantity = medication.Quantity - request.Quantity;
+
+				request.isApproved = true;
+				request.rejected = false;
+				request.approval_date = DateTime.Now;
+
+				_pAS_DBContext.EmergencyMedications.Update(medication);
+				_pAS_DBContext.MedicationRequestHistory.Update(request);
+				await _pAS_DBContext.SaveChangesAsync();
+				//await _emailServiceRepository.MedicineApprovalNotification(request_id);
+
+				transaction.Commit();
+				return Ok("Request Approved");
+			}
+			catch (Exception ex)
+			{
+               return StatusCode(500, $"Internal Server Error: {ex.Message}");
+			}
+		}
+
 
 		//CRUD OPERATIONS
 		[HttpGet("get-all-medications")]
@@ -121,6 +212,71 @@ namespace Property_and_Supply_Management.Controllers
 				
 			}
 		}
-		
+		[HttpGet("get-medication-requests")]
+		public async Task <IActionResult> get_request_history()
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest();
+			}
+
+			try
+			{
+				var request_history = await _requestMedicationHistory.GetRequestHistory();
+
+				var response = request_history.Select(request => new RequestHistoryResponse
+				{
+					request_id = request.request_id,
+					medication_name = request.Medication.MedicationName,
+					requestor_department = request.Department.department_name,
+					quantity = request.Quantity,
+					request_date = request.request_date.ToShortDateString(),
+					type_of_medication = request.medicationType.ToString(),	
+					description = request.Description_of_request,
+					status = request.isApproved,
+					approval_date = request.approval_date.ToString()
+				}).ToList();
+
+				return Ok(response);
+			}  
+			catch (Exception ex)
+			{
+               return StatusCode(500,$"Error: {ex.Message}");
+			}
+		}
+
+		[HttpGet("get-medication/{medication_id}")]
+		public async Task <IActionResult> get_medication(int medication_id)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			try
+			{
+				var medication = await _emergencyMedicationRepository.GetMedicationAsync(medication_id);
+
+				if(medication == null)
+				{
+					return NotFound("Medicine not found");
+				}
+
+				var response = new MedicineDetailsResponse
+				{
+					drug_id = medication.drug_id,
+					department_name = medication.department.department_name,
+					ExpirationDate = medication.ExpirationDate.ToShortDateString(),
+					MedicationName = medication.MedicationName,
+					MedicationType = medication.MedicationType.ToString(),
+					Quantity = medication.Quantity,
+				};
+
+				return Ok(response);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500,$"Internal Server error: {ex.Message}");
+			}
+		}
     }
 }

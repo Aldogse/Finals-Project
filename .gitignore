@@ -1,0 +1,68 @@
+﻿## Visual Studio ##
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+## Build results ##
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+## EF Core tools ##
+*.dbmdl
+*.jfm
+
+## Migrations - Optional ##
+# If you want to ignore compiled migration binaries, keep source (.cs) and ignore:
+**/Migrations/*.Designer.cs
+**/Migrations/*.resx
+
+# If you're keeping migration files under version control (recommended),
+# DO NOT ignore the folder itself:
+# !**/Migrations/
+
+## Packages ##
+packages/
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+
+## Logs ##
+*.log
+*.tlog
+
+## Publish output ##
+publish/
+out/
+
+## Test results ##
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Secrets and config ##
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+*.env
+
+## User-specific files ##
+*.tmp
+*.bak
+*.cache
+*.swp
+*.pid
+
+## IDE-specific ##
+.idea/
+*.DotSettings.user
+
+## System files ##
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini

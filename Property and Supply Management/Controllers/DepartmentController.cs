@@ -1,6 +1,8 @@
-﻿using Contracts_and_Models.Responses;
+﻿using Contracts_and_Models.Request;
+using Contracts_and_Models.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
 
 namespace Property_and_Supply_Management.Controllers
@@ -10,12 +12,15 @@ namespace Property_and_Supply_Management.Controllers
 	public class DepartmentController : ControllerBase
 	{
 		private readonly IDepartmentRepository _departmentRepository;
+		private readonly PAS_DBContext _pAS_DBContext;
 
-		public DepartmentController(IDepartmentRepository departmentRepository)
+		public DepartmentController(IDepartmentRepository departmentRepository,PAS_DBContext pAS_DBContext)
         {
 			_departmentRepository = departmentRepository;
+			_pAS_DBContext = pAS_DBContext;
 		}
 
+		//CRUD FUNCTIONS
 		[AllowAnonymous]
 		[HttpGet("get-all-departments")]
 		public async Task<IActionResult> GetAll()
@@ -91,5 +96,35 @@ namespace Property_and_Supply_Management.Controllers
 				return StatusCode(500, ex.Message);
 			}
 		}
+
+		//Add email information
+		[HttpPut("update-email-information/{department_id}")]
+		public async Task <IActionResult> update_email_information(int department_id,[FromBody]add_email_request department_email)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			try
+			{
+				var department = await _departmentRepository.GetDepartmentByIdAsync(department_id);
+
+				if(department == null)
+				{
+					return NotFound();
+				}
+
+				department.contact_person_email = department_email.new_email;
+				_pAS_DBContext.Update(department);
+				await _pAS_DBContext.SaveChangesAsync();
+
+				return Ok("Email has been added");
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500,$"Internal server error: {ex.Message}");				
+			}
+		}
+
 	}
 }

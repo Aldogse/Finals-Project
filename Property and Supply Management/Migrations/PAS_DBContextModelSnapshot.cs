@@ -297,6 +297,51 @@ namespace Property_and_Supply_Management.Migrations
                     b.ToTable("MaintenanceItems");
                 });
 
+            modelBuilder.Entity("Contracts_and_Models.Models.MedicationRequestRecords", b =>
+                {
+                    b.Property<int>("request_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("request_id"), 1L, 1);
+
+                    b.Property<string>("Description_of_request")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("approval_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("department_id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("medicationType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("medication_id")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("rejected")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("request_date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("request_id");
+
+                    b.HasIndex("department_id");
+
+                    b.HasIndex("medication_id");
+
+                    b.ToTable("MedicationRequestHistory");
+                });
+
             modelBuilder.Entity("Contracts_and_Models.Models.EmergencyMedication", b =>
                 {
                     b.HasOne("Contracts_and_Models.Models.Department", "department")
@@ -326,6 +371,25 @@ namespace Property_and_Supply_Management.Migrations
                         .IsRequired();
 
                     b.Navigation("Item");
+                });
+
+            modelBuilder.Entity("Contracts_and_Models.Models.MedicationRequestRecords", b =>
+                {
+                    b.HasOne("Contracts_and_Models.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("department_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Contracts_and_Models.Models.EmergencyMedication", "Medication")
+                        .WithMany()
+                        .HasForeignKey("medication_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Medication");
                 });
 
             modelBuilder.Entity("Contracts_and_Models.Models.Department", b =>

@@ -8,10 +8,10 @@ namespace Property_and_Supply_Management.Services
 		private readonly IServiceScopeFactory _serviceScopeFactory;
 
 		public MaintenanceItemsNotification(IServiceScopeFactory serviceScopeFactory)
-        {
+		{
 			_serviceScopeFactory = serviceScopeFactory;
 		}
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 		{
 			while (!stoppingToken.IsCancellationRequested)
 			{
@@ -21,13 +21,13 @@ namespace Property_and_Supply_Management.Services
 					var maintenanceRepository = scope.ServiceProvider.GetRequiredService<IMaintenanceItemRepository>();
 					var email_service = scope.ServiceProvider.GetRequiredService<EmailServices>();
 
-					await PendingItemForMaintenanceNotification(database,maintenanceRepository,email_service);
-					await Task.Delay(TimeSpan.FromHours(12),stoppingToken);
+					await PendingItemForMaintenanceNotification(database, maintenanceRepository, email_service);
+					await Task.Delay(TimeSpan.FromHours(12), stoppingToken);
 				}
 			}
 		}
 
-		private async Task PendingItemForMaintenanceNotification(PAS_DBContext pAS_DBContext, IMaintenanceItemRepository maintenanceItemRepository,IEmailServiceRepository emailServices)
+		private async Task PendingItemForMaintenanceNotification(PAS_DBContext pAS_DBContext, IMaintenanceItemRepository maintenanceItemRepository, EmailServices emailServices)
 		{
 			var transaction = pAS_DBContext.Database.BeginTransaction();
 			try

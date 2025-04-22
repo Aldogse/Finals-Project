@@ -8,6 +8,7 @@ namespace Property_and_Supply_Management.Interface
 		Task<List<Item>> GetItemsAsync();
 		Task<Item> GetItemByIdAsync(int id);
 		Task<List<Item>> GetItemsByUser(int id);
+		Task<paginated_response<ItemDetailsResponse>> paginated_Response(int current_page,int page_size);
 		
 	}
 }

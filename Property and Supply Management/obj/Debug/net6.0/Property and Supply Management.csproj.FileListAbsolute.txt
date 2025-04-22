@@ -137,3 +137,5 @@ C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property an
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\bin\Debug\net6.0\publish\Property and Supply Management.deps.json
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\bin\Debug\net6.0\publish\Property and Supply Management.runtimeconfig.json
 C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\School Project 2025\Property and Supply Management\obj\Debug\net6.0\Property and Supply Management.csproj.CopyComplete
+C:\Project\School-Project\Property and Supply Management\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Project\School-Project\Property and Supply Management\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

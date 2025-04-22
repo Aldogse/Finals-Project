@@ -20,8 +20,5 @@ namespace Contracts_and_Models.Request
         [Required(ErrorMessage = "Purchase date is required")]
 		public DateTime purchase_date { get; set; }
 		public DateTime? maintenance_date { get; set; }
-		public int? AssignedTo { get; set; }
-		public ItemUser? User { get; set; }
-		public Status Status { get; set; }
 	}
 }
