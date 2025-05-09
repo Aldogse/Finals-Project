@@ -3,10 +3,11 @@ using Contracts_and_Models.Responses;
 using Microsoft.EntityFrameworkCore;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
+using Responses.Items;
 
 namespace Property_and_Supply_Management.Repository
 {
-	public class ItemRepository : IItemRepository
+    public class ItemRepository : IItemRepository
 	{
 		private readonly PAS_DBContext _pAS_DBContext;
 
@@ -30,6 +31,11 @@ namespace Property_and_Supply_Management.Repository
 		public Task<List<Item>> GetItemsByUser(int id)
 		{
 			throw new NotImplementedException();
+		}
+
+		public async Task<List<Item>> ItemDueForMaintenance()
+		{
+			return await _pAS_DBContext.Items.Where(d => d.maintenance_date == DateTime.Today).ToListAsync();
 		}
 
 		public async Task<paginated_response<ItemDetailsResponse>> paginated_Response(int current_page, int page_size)

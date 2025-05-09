@@ -1,13 +1,15 @@
-﻿using Contracts_and_Models.Request;
-using Contracts_and_Models.Responses;
+﻿using Contracts_and_Models.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
+using Request.Department;
+using Responses.Departments;
+using Responses.Items;
 
 namespace Property_and_Supply_Management.Controllers
 {
-	[ApiController]
+    [ApiController]
 	[Route("Department/v1/")]
 	public class DepartmentController : ControllerBase
 	{

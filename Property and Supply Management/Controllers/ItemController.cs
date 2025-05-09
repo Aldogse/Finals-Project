@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
 using Contracts_and_Models.Models;
-using Contracts_and_Models.Request;
 using Contracts_and_Models.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
+using Request.Items;
+using Responses.Items;
 
 namespace Property_and_Supply_Management.Controllers
 {
-	[ApiController]
+    [ApiController]
 	[Route("Item/v1/")]
 	public class ItemController : ControllerBase
 	{
@@ -19,6 +20,43 @@ namespace Property_and_Supply_Management.Controllers
         {
 			_itemRepository = itemRepository;
 			_pAS_DBContext = pAS_DBContext;
+		}
+
+		[HttpPost("borrow-item-request")]
+		public async Task <IActionResult> borrow_item([FromBody]borrow_item_request borrow_Item_Request)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest();
+			}
+			try
+			{
+				var item_to_borrow = await _itemRepository.GetItemByIdAsync(borrow_Item_Request.item_id);
+
+				if(item_to_borrow == null)
+				{
+					return NotFound();
+				}
+
+				var request = new ItemRequestRecords
+				{
+					item_id = borrow_Item_Request.item_id,
+					department_id = borrow_Item_Request.department_id,
+					quantity = borrow_Item_Request.quantity,
+					description = borrow_Item_Request.description_of_request,
+					itemUser = borrow_Item_Request.user,					
+				};
+
+				//put the request on the pending table first for approval
+				_pAS_DBContext.itemRequestRecords.Add(request);
+				await _pAS_DBContext.SaveChangesAsync();
+
+				return Ok(request);
+			}
+			catch (Exception)
+			{
+				throw;
+			}
 		}
 
 		//BASIC CRUD FUNCTIONALITY
@@ -144,6 +182,11 @@ namespace Property_and_Supply_Management.Controllers
 				return BadRequest(ModelState);
 			}
 
+			if(updateItemRequest.maintenance_date <= DateTime.Now)
+			{
+				return BadRequest();
+			}
+
 			try
 			{
 				var item_to_update = await _itemRepository.GetItemByIdAsync(id);
@@ -180,6 +223,11 @@ namespace Property_and_Supply_Management.Controllers
 				return BadRequest(ModelState);
 			}
 
+			if(statusUpdateRequest.start_date == statusUpdateRequest.end_date)
+			{
+				return BadRequest();
+			}
+
 			var transaction = await _pAS_DBContext.Database.BeginTransactionAsync();
 			try
 			{
@@ -190,7 +238,7 @@ namespace Property_and_Supply_Management.Controllers
 					return NotFound();
 				}
 
-				//first update the status from active to inmaintenance
+				//first update the status from active to in maintenance
 				item_to_update.Status = Contracts_and_Models.Enums.Status.InMaintenance;
 				_pAS_DBContext.Update(item_to_update);
 				await _pAS_DBContext.SaveChangesAsync();
@@ -210,7 +258,7 @@ namespace Property_and_Supply_Management.Controllers
 				await _pAS_DBContext.SaveChangesAsync();
 
 				await transaction.CommitAsync();
-				return Ok();
+				return Ok(maintenance_information);
 
 			}
 			catch (Exception ex)

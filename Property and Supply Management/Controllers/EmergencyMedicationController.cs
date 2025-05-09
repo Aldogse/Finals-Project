@@ -1,9 +1,10 @@
 ﻿using Contracts_and_Models.Models;
-using Contracts_and_Models.Request;
 using Contracts_and_Models.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
+using Request.Medicine;
+using Responses.Medicine;
 
 namespace Property_and_Supply_Management.Controllers
 {
@@ -47,7 +48,7 @@ namespace Property_and_Supply_Management.Controllers
 				var request_records = new MedicationRequestRecords()
 				{
 					department_id = meds_request.department_id,
-					request_date = meds_request.request_date,
+					request_date = DateTime.Now,
 					Quantity = meds_request.quantity,
 					medicationType = meds_request.medication_type,
 					medication_id = meds_request.medication_id,
@@ -102,7 +103,7 @@ namespace Property_and_Supply_Management.Controllers
 				//await _emailServiceRepository.MedicineApprovalNotification(request_id);
 
 				transaction.Commit();
-				return Ok("Request Approved");
+				return Ok(request);
 			}
 			catch (Exception ex)
 			{
@@ -131,7 +132,7 @@ namespace Property_and_Supply_Management.Controllers
 					MedicationType = medicine.MedicationType.ToString(),
 					department_name = medicine.department.department_name,
 					Quantity = medicine.Quantity,
-					ExpirationDate = medicine.ExpirationDate.ToShortDateString(),
+					ExpirationDate = medicine.ExpirationDate.ToShortDateString(),					
 				}).ToList();
 
 				return Ok(response);
@@ -151,6 +152,17 @@ namespace Property_and_Supply_Management.Controllers
 			}
 			try
 			{
+
+				if(addMedicationRequest.ExpirationDate <= DateTime.Today)
+				{
+					return BadRequest();
+				}
+
+				if(addMedicationRequest.Quantity <= 0)
+				{
+					return BadRequest();
+				}
+
 				var new_medication = new EmergencyMedication()
 				{
 					MedicationName = addMedicationRequest.medication_name,
@@ -161,7 +173,7 @@ namespace Property_and_Supply_Management.Controllers
 				};
 				_pAS_DBContext.Add(new_medication);
 				await _pAS_DBContext.SaveChangesAsync();
-				return Ok("Medication added");			
+				return Ok();			
 			}
 			catch (Exception ex)
 			{
@@ -169,7 +181,7 @@ namespace Property_and_Supply_Management.Controllers
 			}
 		}
 
-		[HttpDelete("remove-medication/{medicine_id}")]
+		[HttpPut("remove-medication/{medicine_id}")]
 		public async Task <IActionResult> RemoveMedication(int medicine_id, [FromBody]MedicineDisposalTypeRequest disposedMedication)
 		{
 			if (!ModelState.IsValid)
@@ -198,17 +210,19 @@ namespace Property_and_Supply_Management.Controllers
 				_pAS_DBContext.Entry(add_to_disposed).State = Microsoft.EntityFrameworkCore.EntityState.Added;
 				_pAS_DBContext.DisposedMedications.Add(add_to_disposed);
 
-				 _pAS_DBContext.Remove(medicine_to_delete);
+				medicine_to_delete.isRemoved = true;
+
+				 _pAS_DBContext.Update(medicine_to_delete);
 				await _pAS_DBContext.SaveChangesAsync();
 
 				await transaction.CommitAsync();
-				return Ok("Item removed");
+				return Ok();
 
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				await transaction.RollbackAsync();
-				return StatusCode(500,ex.Message);
+				throw new Exception();
 				
 			}
 		}

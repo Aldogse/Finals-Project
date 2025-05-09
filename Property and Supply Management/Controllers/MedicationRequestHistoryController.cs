@@ -3,6 +3,7 @@ using Contracts_and_Models.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
+using Responses.Medicine;
 
 namespace Property_and_Supply_Management.Controllers
 {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Property_and_Supply_Management.Database;
 using Property_and_Supply_Management.Interface;
+using Responses.Items;
 
 namespace Property_and_Supply_Management.Controllers
 {
@@ -29,7 +30,16 @@ namespace Property_and_Supply_Management.Controllers
 					return Ok("No Disposed Item listed");
 				}
 
-				return Ok(DisposedItems);
+				var response = DisposedItems.Select(item => new disposed_item_details
+				{
+					disposal_id = item.disposal_id,
+					item_name = item.item_name,
+					Reason = item.Reason,
+					DisposalDate = item.DisposalDate.ToShortDateString(),
+					DisposalMethod = item.DisposalMethod.ToString(),
+				}).ToList();
+
+				return Ok(response);
 			}
 			catch (Exception ex)
 			{

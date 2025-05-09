@@ -20,9 +20,9 @@ namespace Property_and_Supply_Management.Repository
 				.ToListAsync();
 		}
 
-		public async Task<MaintenanceItem> GetItemIdAsync(int id)
+		public async Task<MaintenanceItem> GetItemByIdAsync(int id)
 		{
-			return await _pAS_DBContext.MaintenanceItems.Where(i => i.item_id == id).FirstOrDefaultAsync();
+			return await _pAS_DBContext.MaintenanceItems.Where(i => i.item_id == id).Include(i => i.Item).FirstOrDefaultAsync();
 		}
 
 		public async Task<List<MaintenanceItem>> GetItemInProgressStatusAsync()

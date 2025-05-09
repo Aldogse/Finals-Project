@@ -6,23 +6,30 @@ namespace Property_and_Supply_Management.Services
 	public class MaintenanceItemsNotification : BackgroundService
 	{
 		private readonly IServiceScopeFactory _serviceScopeFactory;
+		private readonly ILogger<MaintenanceItemsNotification> _logger;
 
-		public MaintenanceItemsNotification(IServiceScopeFactory serviceScopeFactory)
+		public MaintenanceItemsNotification(IServiceScopeFactory serviceScopeFactory,ILogger<MaintenanceItemsNotification>logger)
 		{
 			_serviceScopeFactory = serviceScopeFactory;
+			_logger = logger;
 		}
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 		{
 			while (!stoppingToken.IsCancellationRequested)
 			{
-				using var scope = _serviceScopeFactory.CreateScope();
+				try
 				{
+					using var scope = _serviceScopeFactory.CreateScope();
 					var database = scope.ServiceProvider.GetRequiredService<PAS_DBContext>();
 					var maintenanceRepository = scope.ServiceProvider.GetRequiredService<IMaintenanceItemRepository>();
 					var email_service = scope.ServiceProvider.GetRequiredService<EmailServices>();
-
 					await PendingItemForMaintenanceNotification(database, maintenanceRepository, email_service);
-					await Task.Delay(TimeSpan.FromHours(12), stoppingToken);
+					_logger.LogInformation($"Email notification sent on {DateTime.Now}");
+					await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+				}
+				catch (Exception ex)
+				{
+					throw new Exception(ex.Message);
 				}
 			}
 		}

@@ -6,12 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Property_and_Supply_Management</RootNamespace>
   </PropertyGroup>
-
-
-  <ItemGroup>
-    <!--<Compile Remove="Interface\IDisposedItemRepository.cs" />-->
-	  <!--<Compile Remove="Repository\RequestHistoryRepository.cs" />-->
-  </ItemGroup>
 	 
 
 	<ItemGroup>

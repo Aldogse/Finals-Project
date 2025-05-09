@@ -184,6 +184,9 @@ namespace Property_and_Supply_Management.Migrations
                     b.Property<int>("department_id")
                         .HasColumnType("int");
 
+                    b.Property<bool?>("isRemoved")
+                        .HasColumnType("bit");
+
                     b.HasKey("drug_id");
 
                     b.HasIndex("department_id");
@@ -263,6 +266,45 @@ namespace Property_and_Supply_Management.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("Contracts_and_Models.Models.ItemRequestRecords", b =>
+                {
+                    b.Property<int>("request_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("request_id"), 1L, 1);
+
+                    b.Property<DateTime?>("approvalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("department_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isRejected")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("itemUser")
+                        .HasColumnType("int");
+
+                    b.Property<int>("item_id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("request_id");
+
+                    b.HasIndex("department_id");
+
+                    b.HasIndex("item_id");
+
+                    b.ToTable("itemRequestRecords");
+                });
+
             modelBuilder.Entity("Contracts_and_Models.Models.MaintenanceItem", b =>
                 {
                     b.Property<int>("maintenance_Id")
@@ -276,6 +318,9 @@ namespace Property_and_Supply_Management.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("complete_date")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("end_date")
                         .HasColumnType("datetime2");
@@ -360,6 +405,25 @@ namespace Property_and_Supply_Management.Migrations
                         .HasForeignKey("AssignedTo");
 
                     b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("Contracts_and_Models.Models.ItemRequestRecords", b =>
+                {
+                    b.HasOne("Contracts_and_Models.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("department_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Contracts_and_Models.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("item_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("Contracts_and_Models.Models.MaintenanceItem", b =>

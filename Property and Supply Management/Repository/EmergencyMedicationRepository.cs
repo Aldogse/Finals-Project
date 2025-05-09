@@ -15,7 +15,9 @@ namespace Property_and_Supply_Management.Repository
         }
         public async Task<List<EmergencyMedication>> GetEmergencyMedicationsAsync()
 		{
-			return await _pAS_DBContext.EmergencyMedications.Include(d => d.department).ToListAsync();
+			return await _pAS_DBContext.EmergencyMedications.Where(r => r.isRemoved == false || r.isRemoved == null)
+				.Include(d => d.department)
+				.ToListAsync();
 		}
 
 		public async Task<EmergencyMedication> GetMedicationAsync(int id)
